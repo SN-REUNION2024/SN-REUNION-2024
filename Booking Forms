@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+</head>
+<body>
+  <p>Redirecting to Google Form...</p>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize LIFF
+      liff.init({ liffId: "2006571718-R0lW980A" })
+        .then(() => {
+          // ตรวจสอบว่าผู้ใช้ Login แล้วหรือยัง
+          if (liff.isLoggedIn()) {
+            // ดึงข้อมูล userId จากโปรไฟล์ผู้ใช้
+            liff.getProfile().then(profile => {
+              const userId = profile.userId;
+              
+              // กำหนด URL ของ Google Form พร้อมแนบ userId ในพารามิเตอร์
+              const formUrl = `https://docs.google.com/forms/d/1cuBZRg8Oww2CuJXawMSXCJp-Pm22GYsQ7e-dBS3ubqk/viewform?usp=pp_url&entry.1143662152=${userId}`;
+              
+              // Redirect ไปยัง Google Form พร้อมกับ userId
+              window.location.href = formUrl;
+            }).catch(error => {
+              console.error("Error fetching profile:", error);
+            });
+          } else {
+            liff.login();
+          }
+        })
+        .catch(err => {
+          console.error("LIFF Initialization failed", err);
+        });
+    });
+  </script>
+</body>
+</html>
