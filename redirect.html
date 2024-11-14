@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2566">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Thonburi; -webkit-text-stroke: #000000}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 12.0px Helvetica; font-kerning: none}
+    span.s3 {font: 12.0px Thonburi; font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Redirecting...&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p&gt;Redirecting to Google Form...&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.addEventListener("DOMContentLoaded", function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Initialize LIFF</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>liff.init({ liffId: "2006571718-R0lW980A" })</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.then(() =&gt; {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>// </span><span class="s1">ตรวจสอบว่าผู้ใช้</span><span class="s2"> Login </span><span class="s1">แล้วหรือยัง</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>if (liff.isLoggedIn()) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>// </span><span class="s1">ดึงข้อมูล</span><span class="s2"> userId </span><span class="s1">จากโปรไฟล์ผู้ใช้</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>liff.getProfile().then(profile =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>const userId = profile.userId;</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">              </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>// </span><span class="s3">กำหนด</span><span class="s1"> URL </span><span class="s3">ของ</span><span class="s1"> Google Form </span><span class="s3">พร้อมแนบ</span><span class="s1"> userId </span><span class="s3">ในพารามิเตอร์</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>const formUrl = `https://docs.google.com/forms/d/1cuBZRg8Oww2CuJXawMSXCJp-Pm22GYsQ7e-dBS3ubqk/viewform?usp=pp_url&amp;entry.1143662152=${userId}`;</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">              </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>// Redirect </span><span class="s3">ไปยัง</span><span class="s1"> Google Form </span><span class="s3">พร้อมกับ</span><span class="s1"> userId</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>window.location.href = formUrl;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}).catch(error =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>console.error("Error fetching profile:", error);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>liff.login();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>})</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.catch(err =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>console.error("LIFF Initialization failed", err);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
