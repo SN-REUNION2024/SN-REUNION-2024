@@ -3,24 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting...</title>
+  <title>Loading ...</title>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <style>
-    /* Reset some default styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* Set background image and style for the whole body */
     body {
-      font-family: 'Arial', sans-serif;
-      background-image: url('https://i.postimg.cc/mrwS2ZS1/bg-loading-page.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #ffffff;
+      font-family: 'Noto Sans', sans-serif;
+      background-color: #f7f8f6;
+      color: #333;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -30,64 +25,93 @@
     }
 
     .container {
-      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-      border-radius: 12px;
-      padding: 40px;
-      max-width: 600px;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px 15px;
+      max-width: 380px;
       width: 100%;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     h1 {
-      font-size: 32px;
-      color: #fff;
-      margin-bottom: 20px;
+      font-size: 22px;
+      color: #2c3e50;
+      margin-bottom: 12px;
+      font-weight: 500;
     }
 
     p {
-      font-size: 18px;
-      color: #dcdcdc;
-      margin-bottom: 30px;
+      font-size: 14px;
+      color: #7f8c8d;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }
 
-    .spinner {
-      border: 8px solid #f3f3f3;
-      border-top: 8px solid #3498db;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1.5s linear infinite;
-      margin: 20px auto;
+    /* Paper Shoot Animation */
+    .paper-shoot {
+      width: 20px;
+      height: 20px;
+      background-color: #b3e2b3; /* สีเขียวพาสเทล */
+      border-radius: 2px;
+      position: absolute;
+      animation: paperShoot 1s infinite ease-out;
     }
 
-    /* Animation for the spinner */
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .paper-shoot:nth-child(1) {
+      animation-delay: 0.1s;
     }
 
-    /* Responsive design */
+    .paper-shoot:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    .paper-shoot:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes paperShoot {
+      0% {
+        transform: translateY(100%) rotate(45deg);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-50%) rotate(90deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100%) rotate(180deg);
+        opacity: 0;
+      }
+    }
+
     @media (max-width: 768px) {
       h1 {
-        font-size: 28px;
+        font-size: 20px;
       }
 
       p {
-        font-size: 16px;
+        font-size: 13px;
       }
 
-      .spinner {
-        width: 40px;
-        height: 40px;
+      .paper-shoot {
+        width: 18px;
+        height: 18px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Redirecting...</h1>
-    <p>โปรดรอสักครู่ เรากำลังนำท่านเข้าสู่หน้าลงทะเบียน</p>
-    <div class="spinner"></div>
+    <h1>Loading ...</h1>
+    <p>โปรดรอสักครู่ ระบบกำลังนำท่านเข้าสู่หน้าลงทะเบียน</p>
+    <!-- Paper Shoot Animation -->
+    <div class="paper-shoot"></div>
+    <div class="paper-shoot"></div>
+    <div class="paper-shoot"></div>
   </div>
 
   <script>
