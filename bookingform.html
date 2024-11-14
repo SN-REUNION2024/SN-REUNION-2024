@@ -5,24 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting...</title>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Set background image and style for the whole body */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-image: url('https://i.postimg.cc/mrwS2ZS1/bg-loading-page.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #ffffff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #dcdcdc;
+      margin-bottom: 30px;
+    }
+
+    .spinner {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1.5s linear infinite;
+      margin: 20px auto;
+    }
+
+    /* Animation for the spinner */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting to Booking Form...</p>
+  <div class="container">
+    <h1>Redirecting...</h1>
+    <p>โปรดรอสักครู่ เรากำลังนำท่านเข้าสู่หน้าลงทะเบียน</p>
+    <div class="spinner"></div>
+  </div>
+
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       // Initialize LIFF
       liff.init({ liffId: "2006571718-R0lW980A" })
         .then(() => {
-          // ตรวจสอบว่าผู้ใช้ Login แล้วหรือยัง
+          // Check if the user is logged in
           if (liff.isLoggedIn()) {
-            // ดึงข้อมูล userId จากโปรไฟล์ผู้ใช้
+            // Get the user profile and userId
             liff.getProfile().then(profile => {
               const userId = profile.userId;
               
-              // กำหนด URL ของ Google Form พร้อมแนบ userId ในพารามิเตอร์
+              // Set the Google Form URL with the userId as a parameter
               const formUrl = `https://docs.google.com/forms/d/1cuBZRg8Oww2CuJXawMSXCJp-Pm22GYsQ7e-dBS3ubqk/viewform?usp=pp_url&entry.1143662152=${userId}`;
               
-              // Redirect ไปยัง Google Form พร้อมกับ userId
+              // Redirect to the Google Form with the userId
               window.location.href = formUrl;
             }).catch(error => {
               console.error("Error fetching profile:", error);
