@@ -1,95 +1,111 @@
-<!DOCTYPE html>
-<html lang="th">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ลิงก์หมดอายุ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans Thai', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f7f7f7;
-            color: #333;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .container {
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #F14924;
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
-        a {
-            text-decoration: none;
-            color: white;
-            background-color: #F14924;
-            padding: 12px 24px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        a:hover {
-            background-color: #D03A1C;
-        }
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2566">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1 id="status-heading">กำลังตรวจสอบ...</h1>
-        <p id="status-message"></p>
-        <a id="expired-link" href="https://liff.line.me/2006571718-R0lW980A" style="display: none;">ไปยังหน้าลงทะเบียนใหม่</a>
-    </div>
-
-    <script>
-        // ฟังก์ชันสำหรับดึงค่าจาก URL Parameters
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        // ตรวจสอบเวลาและแสดงสถานะ
-        function checkTimestampAndRedirect() {
-            const timestampParam = getQueryParam('timestamp');
-            const linkA = getQueryParam('linkA');
-
-            if (!timestampParam || !linkA) {
-                document.getElementById("status-heading").textContent = "เกิดข้อผิดพลาด";
-                document.getElementById("status-message").textContent = "ไม่พบข้อมูลที่จำเป็น กรุณาตรวจสอบลิงก์อีกครั้ง";
-                return;
-            }
-
-            const timestamp = new Date(timestampParam);
-            const currentTime = new Date();
-
-            // คำนวณความต่างเวลา (ในหน่วยนาที)
-            const timeDifference = (currentTime - timestamp) / (1000 * 60);
-
-            if (timeDifference <= 30) {
-                // หากอยู่ใน 30 นาที ให้ไดเรกไปยัง LinkA
-                window.location.href = linkA;
-            } else {
-                // หากเกิน 30 นาที แสดงข้อความหมดอายุ
-                document.getElementById("status-heading").textContent = "ลิงก์ชำระเงินหมดอายุ";
-                document.getElementById("status-message").textContent = "ลิงก์นี้หมดอายุเนื่องจากเกิน 30 นาที";
-                document.getElementById("expired-link").style.display = "inline-block";
-            }
-        }
-
-        // เรียกใช้ฟังก์ชันเมื่อหน้าโหลดเสร็จ
-        window.onload = checkTimestampAndRedirect;
-    </script>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="th"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;ลิงก์หมดอายุ&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Noto Sans Thai', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f7f7f7;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.5em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #F14924;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.5;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #F14924;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #D03A1C;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 id="status-heading"&gt;กำลังตรวจสอบ...&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="status-message"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a id="expired-link" href="https://liff.line.me/2006571718-R0lW980A" style="display: none;"&gt;ไปยังหน้าลงทะเบียนใหม่&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ฟังก์ชันสำหรับดึงค่าจาก URL Parameters</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function getQueryParam(param) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const urlParams = new URLSearchParams(window.location.search);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return urlParams.get(param);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ตรวจสอบเวลาและแสดงสถานะ</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function checkTimestampAndRedirect() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const timestampParam = getQueryParam('timestamp');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const linkA = getQueryParam('linkA');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!timestampParam || !linkA) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("status-heading").textContent = "เกิดข้อผิดพลาด";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("status-message").textContent = "ไม่พบข้อมูลที่จำเป็น กรุณาตรวจสอบลิงก์อีกครั้ง";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const timestamp = new Date(timestampParam);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const currentTime = new Date();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// คำนวณความต่างเวลา (ในหน่วยนาที)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const timeDifference = (currentTime - timestamp) / (1000 * 60);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (timeDifference &lt;= 30) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// หากอยู่ใน 30 นาที ให้ไดเรกไปยัง LinkA</p>
+<p class="p1"><span class="Apple-converted-space">                </span>window.location.href = linkA;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// หากเกิน 30 นาที แสดงข้อความหมดอายุ</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("status-heading").textContent = "ลิงก์ชำระเงินหมดอายุ";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("status-message").textContent = "ลิงก์นี้หมดอายุเนื่องจากเกิน 30 นาที";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("expired-link").style.display = "inline-block";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// เรียกใช้ฟังก์ชันเมื่อหน้าโหลดเสร็จ</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.onload = checkTimestampAndRedirect;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
 </body>
 </html>
