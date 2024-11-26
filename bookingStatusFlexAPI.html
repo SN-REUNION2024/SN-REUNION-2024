@@ -20,29 +20,29 @@
     }
     .container {
       text-align: center;
-      max-width: 90%; /* ปรับความกว้างให้เหมาะสมกับหน้าจอ */
+      max-width: 90%;
       width: 100%;
     }
     h1 {
-      font-size: 2em; /* ปรับขนาดฟอนต์ให้เล็กลง */
-      margin-bottom: 15px; /* ลดระยะห่าง */
-      color: #00A86B; /* เปลี่ยนสีเป็นเขียว */
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #00A86B;
     }
     p {
-      font-size: 1em; /* ปรับขนาดฟอนต์ให้เล็กลง */
-      margin-bottom: 20px; /* ลดระยะห่าง */
-      line-height: 1.4; /* ปรับระยะห่างระหว่างบรรทัด */
+      font-size: 1em;
+      margin-bottom: 20px;
+      line-height: 1.4;
     }
     a {
       text-decoration: none;
       color: white;
-      background-color: #00A86B; /* เปลี่ยนสีเป็นเขียว */
-      padding: 10px 20px; /* ปรับขนาดปุ่มให้เล็กลง */
+      background-color: #00A86B;
+      padding: 10px 20px;
       border-radius: 5px;
       transition: background-color 0.3s ease;
     }
     a:hover {
-      background-color: #008057; /* สีเมื่อเอาเมาส์ไปวาง */
+      background-color: #008057;
     }
   </style>
 </head>
@@ -64,6 +64,7 @@
     function checkTimestampAndRedirect() {
       const timestampParam = getQueryParam('timestamp');
       const linkA = getQueryParam('linkA');
+      const inRawPayments = getQueryParam('inRawPayments');
 
       if (!timestampParam || !linkA) {
         document.getElementById("status-heading").textContent = "เกิดข้อผิดพลาด";
@@ -78,8 +79,16 @@
       const timeDifference = (currentTime - timestamp) / (1000 * 60);
 
       if (timeDifference <= 30) {
-        // หากอยู่ใน 30 นาที ให้ไดเรกไปยัง LinkA
-        window.location.href = linkA;
+        // ตรวจสอบ inRawPayments ก่อน Redirect
+        if (inRawPayments === 'true') {
+          document.getElementById("status-heading").textContent = "แจ้งเตือน";
+          document.getElementById("status-message").textContent = "ท่านได้ส่งแบบชำระเงินเข้าสู่ระบบก่อนหน้านี้แล้ว โปรดรอระบบตรวจเช็คความถูกต้องในการชำระเงินของท่าน หากสำเร็จระบบจะส่ง E-Booking ให้ท่านทาง Line OA";
+          setTimeout(() => {
+            window.location.href = "https://lin.ee/NSquIjJ";
+          }, 5000); // รอ 5 วินาทีก่อน Redirect
+        } else {
+          window.location.href = linkA;
+        }
       } else {
         // หากเกิน 30 นาที แสดงข้อความหมดอายุ
         document.getElementById("status-heading").textContent = "การชำระเงินหมดอายุ";
