@@ -61,6 +61,8 @@
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.get(param);
     }
+    
+    const bookingNo = getQueryParam('bookingNo');
 
     // ตรวจสอบ Booking No. ในชีท
     async function checkBookingNo(bookingNo) {
