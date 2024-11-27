@@ -129,6 +129,10 @@
         document.getElementById("status-heading").textContent = "การชำระเงินหมดอายุ";
         document.getElementById("status-message").textContent = "Link นี้หมดอายุเนื่องจากเกิน 30 นาที";
         document.getElementById("expired-link").style.display = "inline-block";
+        // หน่วงเวลา 5 วินาทีแล้ว Redirect ไปยัง URL ใหม่
+        setTimeout(() => {
+          window.location.href = "https://liff.line.me/2006571718-R0lW980A"; // URL ที่จะ Redirect ไป
+        }, 5000); // หน่วงเวลา 5 วินาที
       }
     }
 
