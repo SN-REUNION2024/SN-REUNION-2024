@@ -54,19 +54,34 @@
   </div>
 
   <script>
+    const sheetURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'; // URL ของ Google Apps Script Web App
+
     // ฟังก์ชันสำหรับดึงค่าจาก URL Parameters
     function getQueryParam(param) {
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.get(param);
     }
 
-    // ตรวจสอบเวลาและแสดงสถานะ
-    function checkTimestampAndRedirect() {
+    // ตรวจสอบ Booking No. ในชีท
+    async function checkBookingNo(bookingNo) {
+      try {
+        const response = await fetch(sheetURL);
+        if (!response.ok) throw new Error('Failed to fetch data from Google Sheet');
+        const data = await response.json();
+        return data.includes(bookingNo); // ตรวจสอบว่า Booking No. อยู่ในข้อมูลหรือไม่
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        return false;
+      }
+    }
+
+    // ตรวจสอบเวลาและสถานะ
+    async function checkTimestampAndRedirect() {
       const timestampParam = getQueryParam('timestamp');
       const linkA = getQueryParam('linkA');
-      const inRawPayments = getQueryParam('inRawPayments');
+      const bookingNo = getQueryParam('bookingNo'); // ดึง Booking No. จาก URL
 
-      if (!timestampParam || !linkA) {
+      if (!timestampParam || !linkA || !bookingNo) {
         document.getElementById("status-heading").textContent = "เกิดข้อผิดพลาด";
         document.getElementById("status-message").textContent = "ไม่พบข้อมูลที่จำเป็น กรุณาตรวจสอบลิงก์อีกครั้ง";
         return;
@@ -79,15 +94,18 @@
       const timeDifference = (currentTime - timestamp) / (1000 * 60);
 
       if (timeDifference <= 30) {
-        // ตรวจสอบ inRawPayments ก่อน Redirect
-        if (inRawPayments === 'true') {
+        // ตรวจสอบ Booking No. กับข้อมูลในชีท
+        const isBookingExists = await checkBookingNo(bookingNo);
+
+        if (isBookingExists) {
           document.getElementById("status-heading").textContent = "แจ้งเตือน";
-          document.getElementById("status-message").textContent = "ท่านได้ส่งแบบชำระเงินเข้าสู่ระบบก่อนหน้านี้แล้ว โปรดรอระบบตรวจเช็คความถูกต้องในการชำระเงินของท่าน หากสำเร็จระบบจะส่ง E-Booking ให้ท่านทาง Line OA";
+          document.getElementById("status-message").textContent = 
+            "ท่านได้ส่งแบบชำระเงินเข้าสู่ระบบก่อนหน้านี้แล้ว โปรดรอระบบตรวจเช็คความถูกต้องในการชำระเงินของท่าน หากสำเร็จระบบจะส่ง E-Booking ให้ท่านทาง Line OA";
           setTimeout(() => {
             window.location.href = "https://lin.ee/NSquIjJ";
           }, 5000); // รอ 5 วินาทีก่อน Redirect
         } else {
-          window.location.href = linkA;
+          window.location.href = linkA; // Redirect ไปยัง linkA
         }
       } else {
         // หากเกิน 30 นาที แสดงข้อความหมดอายุ
