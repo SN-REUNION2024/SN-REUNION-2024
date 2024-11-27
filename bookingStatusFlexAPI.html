@@ -52,7 +52,7 @@
       width: 30px;
       height: 30px;
       animation: spin 2s linear infinite;
-      margin-bottom: 15px;
+      margin-top: 10px; /* เพิ่มระยะห่างจากข้อความ */
       display: inline-block;
     }
     @keyframes spin {
@@ -68,8 +68,10 @@
 <body>
    <div class="container">
     <h1 id="status-heading">
-      <span class="loader" id="loader"></span> กำลังตรวจสอบ...
+      กำลังตรวจสอบ
     </h1>
+    <!-- แสดง loader ตรงกลางและอยู่ใต้ข้อความ "กำลังตรวจสอบ" -->
+    <div id="loader-container" class="loader"></div>
     <p id="status-message"></p>
     <a id="expired-link" href="https://liff.line.me/2006571718-R0lW980A" style="display: none;">ไปยังหน้าลงทะเบียนใหม่</a>
   </div>
