@@ -44,28 +44,32 @@
     a:hover {
       background-color: #008057;
     }
-    /* เพิ่ม CSS สำหรับ Loading Animation */
-    .loading {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      border: 5px solid #f3f3f3;
-      border-top: 5px solid #00A86B;
+    /* Loading animation */
+    .loader {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #00A86B;
       border-radius: 50%;
-      animation: spin 1s linear infinite;
+      width: 30px;
+      height: 30px;
+      animation: spin 2s linear infinite;
+      margin-bottom: 15px;
+      display: inline-block;
     }
-
-    /* กำหนดแอนิเมชันให้หมุน */
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    /* Hide loading spinner */
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 id="status-heading">กำลังตรวจสอบ...</h1>
-    <div id="loading" class="loading"></div> <!-- เพิ่มแอนิเมชันการโหลด -->
+   <div class="container">
+    <h1 id="status-heading">
+      <span class="loader" id="loader"></span> กำลังตรวจสอบ...
+    </h1>
     <p id="status-message"></p>
     <a id="expired-link" href="https://liff.line.me/2006571718-R0lW980A" style="display: none;">ไปยังหน้าลงทะเบียนใหม่</a>
   </div>
