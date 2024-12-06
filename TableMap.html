@@ -71,7 +71,7 @@
                 document.querySelector('.progress-2').style.display = 'none'; // ซ่อนแอนิเมชันเมื่อโหลดเสร็จ
             } catch (error) {
                 console.error("Error fetching data:", error);
-                document.getElementById("seatBalance").innerText = "Error loading data.";
+                document.getElementById("seatBalance").innerText = "";
                 document.querySelector('.progress-2').style.display = 'none'; // ซ่อนแอนิเมชันเมื่อเกิดข้อผิดพลาด
             }
         }
