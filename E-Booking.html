@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2566">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="th"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;E-Booking Verification&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Noto Sans Thai', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #f7f7f7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 400px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 2em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #00A86B;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: calc(100% - 24px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #00A86B;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #008057;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.error-message {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: red;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>table {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%; /* ขยายความกว้างของตาราง */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 40px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>th, td {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9em;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid #ccc; /* เส้นขอบด้านล่าง */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>th {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: transparent; /* ไม่มีสีพื้นหลัง */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #555; /* เปลี่ยนเป็นสีเทาเข้ม */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>td {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: transparent; /* ไม่มีสีพื้นหลัง */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>margin-top: auto;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>text-align: center;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 0.8em;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>color: #555;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>padding-top :10px ;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>padding-bottom :10px ;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>width :100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>position : relative ;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>z-index :1 ;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>background-color : transparent ;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>border-top :1px solid rgba(200,200,200,0.5);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer strong {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-weight: bold;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>a {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>color: white;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>background-color: #00A86B;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>padding: 5px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>transition: background-color 0.3s ease;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>background-color: #008057;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width :600px) {</p>
+<p class="p1"><span class="Apple-converted-space">       </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">           </span>font-size :1.5em ;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">       </span>}</p>
+<p class="p1"><span class="Apple-converted-space">       </span>input, button {</p>
+<p class="p1"><span class="Apple-converted-space">           </span>width :calc(100% -16px) ;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">           </span>padding :10px ;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">       </span>}</p>
+<p class="p1"><span class="Apple-converted-space">       </span>table th, table td {</p>
+<p class="p1"><span class="Apple-converted-space">           </span>padding :6px ;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">           </span>font-size :0.8em ;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">           </span>white-space: nowrap; /* ป้องกันการตัดบรรทัดในเซลล์ */</p>
+<p class="p1"><span class="Apple-converted-space">       </span>}</p>
+<p class="p1"><span class="Apple-converted-space">       </span>footer {</p>
+<p class="p1"><span class="Apple-converted-space">           </span>font-size :0.7em ;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">           </span>padding-top :5px ;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>padding-bottom :5px ;</p>
+<p class="p1"><span class="Apple-converted-space">       </span>}</p>
+<p class="p1"><span class="Apple-converted-space">   </span>}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;div class="container"&gt;</p>
+<p class="p1">&lt;h1&gt;E-Booking&lt;/h1&gt;</p>
+<p class="p1">&lt;input type="text" id="idCard" placeholder="โปรดระบุหมายเลขประจำตัวประชาชนที่ใช้ในการจอง"&gt;</p>
+<p class="p1">&lt;button onclick="fetchBooking()"&gt;ตรวจสอบ&lt;/button&gt;</p>
+<p class="p1">&lt;div id="bookingInfo"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>&lt;strong&gt;POWERED BY NAN ALIVE © 2024&lt;/strong&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>Creative City Platform for Nan Creative City</p>
+<p class="p1">&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">async function fetchBooking() {</p>
+<p class="p1"><span class="Apple-converted-space">   </span>const idCard = document.getElementById('idCard').value;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>const bookingInfo = document.getElementById('bookingInfo');</p>
+<p class="p1"><span class="Apple-converted-space">   </span>const fetchButton = document.querySelector('button');</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">   </span>bookingInfo.innerHTML = '';<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">   </span>if (idCard.length !== 13 || !/^\d+$/.test(idCard)) {</p>
+<p class="p1"><span class="Apple-converted-space">       </span>bookingInfo.innerHTML = '&lt;p class="error-message"&gt;กรุณาระบุหมายเลขบัตรประชาชนที่ถูกต้อง (13 หลัก และเป็นตัวเลข)&lt;/p&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">       </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">   </span>fetchButton.disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>fetchButton.textContent = 'กำลังตรวจสอบ...';</p>
+<p class="p1"><span class="Apple-converted-space">   </span>bookingInfo.innerHTML = '&lt;p&gt;กำลังดึงข้อมูลการจอง โปรดรอสักครู่...&lt;/p&gt;';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">   </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">       </span>const response = await fetch(</p>
+<p class="p1"><span class="Apple-converted-space">           </span>`https://script.google.com/macros/s/AKfycbwn7aHiG926SdxMJgzF19HEXWvo1NALSJ_Dtn1Hp06alYWaItUZxhSJZTDPWJuUYL4d2A/exec?idCard=${idCard}`</p>
+<p class="p1"><span class="Apple-converted-space">       </span>);</p>
+<p class="p1"><span class="Apple-converted-space">       </span>const data = await response.json();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">       </span>if (data.status === 'success' &amp;&amp; Array.isArray(data.data) &amp;&amp; data.data.length &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">           </span>let tableHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">           </span>&lt;table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>&lt;th&gt;Booking No.&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>&lt;th&gt;ชื่อผู้จอง&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>&lt;th&gt;รายละเอียด&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>&lt;th&gt;E-Booking&lt;/th&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">           </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">           </span>data.data.forEach(booking =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">               </span>tableHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">               </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">               </span>&lt;td&gt;${booking.bookingNo || '-'}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">               </span>&lt;td&gt;${booking.customerName || '-'}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">               </span>&lt;td&gt;${booking.bookingDetails || '-'}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">               </span>&lt;td&gt;&lt;a href="${booking.pdfLink}" target="_blank"&gt;ดาวน์โหลด&lt;/a&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">               </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">               </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">           </span>tableHTML += `&lt;/tbody&gt;&lt;/table&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>bookingInfo.innerHTML = tableHTML;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">       </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">           </span>bookingInfo.innerHTML = '&lt;p class="error-message"&gt;ไม่พบข้อมูลการจองสำหรับหมายเลขบัตรประชาชนนี้&lt;/p&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">       </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">   </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">       </span>console.error(error);</p>
+<p class="p1"><span class="Apple-converted-space">       </span>bookingInfo.innerHTML = '&lt;p class="error-message"&gt;เกิดข้อผิดพลาดในการดึงข้อมูล กรุณาลองใหม่อีกครั้ง&lt;/p&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">   </span>} finally {</p>
+<p class="p1"><span class="Apple-converted-space">       </span>fetchButton.disabled = false;</p>
+<p class="p1"><span class="Apple-converted-space">       </span>fetchButton.textContent = 'ตรวจสอบ';</p>
+<p class="p1"><span class="Apple-converted-space">   </span>}</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
